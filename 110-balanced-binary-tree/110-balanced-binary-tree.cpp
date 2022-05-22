@@ -25,11 +25,11 @@ public:
         if(cur == NULL) {
             return true;
         } else {
-            int bf = findheight(cur->left) - findheight(cur->right);
+            int balanceFactor = findheight(cur->left) - findheight(cur->right);
             
-            if(bf < -1 || bf > 1) {
+            if (abs(balanceFactor) > 1) {
                 return false;
-            } else {
+            } else { 
                 return isBalanced(cur->left) && isBalanced(cur->right);
             }
         }
