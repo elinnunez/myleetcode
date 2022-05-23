@@ -27,8 +27,8 @@ public:
         
         for(int i = 0; i  < grid.size(); i++) {
             for(int j = 0; j < grid[i].size(); j++) {
-                if(grid[i][j] == '1') { // check if position is land
-                    dfs(grid, i, j); // call dfs on that position
+                if(grid[i][j] == '1') { // check if position is unvisited land
+                    dfs(grid, i, j); // call dfs on that position in case not visited since if visited it would be a 2
                     islands++; // increment island counter since island found
                 }
             }
