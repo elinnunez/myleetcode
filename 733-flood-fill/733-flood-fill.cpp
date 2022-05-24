@@ -1,35 +1,30 @@
 class Solution {
 public:
     
-    void dfs(vector<vector<int>>& img, int sr, int sc, int newColor, int rows, int cols, int source) {
-        if(sr < 0 || sc < 0 || sr >= rows || sc >= cols) {
+    void dfs(vector<vector<int>> &img, int sr, int sc, int newcolor, int src) {
+        if(sr < 0 || sr >= img.size() || sc < 0 || sc >= img[0].size()) {
             return;
         }
         
-        if(img[sr][sc] == source) {
-        
-            img[sr][sc] = newColor;
-        
-            dfs(img, sr-1, sc, newColor, rows, cols, source);
-            dfs(img, sr+1, sc, newColor, rows, cols, source);
-            dfs(img, sr, sc-1, newColor, rows, cols, source);
-            dfs(img, sr, sc+1, newColor, rows, cols, source);
+        if(img[sr][sc] != src) {
+            return;
         }
-    } 
-    
+        
+        img[sr][sc] = newcolor;
+        
+        dfs(img, sr+1, sc, newcolor, src);
+        dfs(img, sr-1, sc, newcolor, src);
+        dfs(img, sr, sc+1, newcolor, src);
+        dfs(img, sr, sc-1, newcolor, src);
+    }
     
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
         
-        int src = image[sr][sc];
+        int source = image[sr][sc];
         
-        int rows = image.size();
-        int cols = image[0].size();
-        
-        if(newColor == src) {
-            return image;
+        if(newColor != source) {
+            dfs(image, sr, sc, newColor, source);
         }
-        
-        dfs(image, sr, sc, newColor, rows, cols, src);
         
         return image;
         
