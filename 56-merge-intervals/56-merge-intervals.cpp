@@ -14,10 +14,13 @@ public:
             int chi = intervals[i][1];
             
             if(clow > curmax) {
+                
                 vector<int> temp;
                 temp.push_back(low);
                 temp.push_back(curmax);
+                
                 bag.push_back(temp);
+                
                 low = clow;
             }
             curmax = max(curmax,chi);
