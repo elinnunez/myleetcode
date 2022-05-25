@@ -21,7 +21,7 @@ public:
                 //so to adjust that we will add the divisor, here 7 -> -4+7=3
             }
             
-            if(hash.find(remainder) != hash.end()) {
+            if(hash.count(remainder)) {
                 count+= hash[remainder];
             }
             hash[remainder]++;
