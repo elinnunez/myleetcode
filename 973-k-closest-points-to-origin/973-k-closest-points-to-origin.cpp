@@ -18,9 +18,9 @@ public:
         int count = 0;
         
         while(count != k) {
-            kclose.push_back(points[temp[count][1]]);
+            int ptsIdx = temp[count][1];
+            kclose.push_back(points[ptsIdx]);
             count++;
-            
         }
         
         return kclose;
