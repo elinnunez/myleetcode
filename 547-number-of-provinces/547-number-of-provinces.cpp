@@ -8,7 +8,7 @@ public:
         //loop through row array
         for(int i = 0; i < isConnected[r].size(); i++) {
             //if valid location and the index hasn't been visited call dfs recursively
-            if(isConnected[r][i] && !vi[i]) {
+            if(isConnected[r][i] == 1 && !vi[i]) {
                 dfs(isConnected, vi, i);
             }
         }
