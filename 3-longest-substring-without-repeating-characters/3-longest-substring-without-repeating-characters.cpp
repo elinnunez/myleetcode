@@ -2,27 +2,43 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         
-        unordered_map<char, int> ht;
+        // unordered_map<char, int> ht;
         
         int left = 0;
         
-        int count = 0;
+        // int count = 0;
         
         int maxnum = 0;
         
-        for(int i = 0; i < s.size(); i++) {
-            char cur = s[i];
-            ht[cur]++;
-            count++;
+        int right = 0;
+        
+//         for(int i = 0; i < s.size(); i++) {
+//             char cur = s[i];
+//             ht[cur]++;
+//             count++;
             
-            while(ht[cur] > 1) {
-                ht[s[left]]--;
+//             while(ht[cur] > 1) {
+//                 ht[s[left]]--;
+//                 left++;
+//                 count--;
+//             }
+            
+//             maxnum = max(count, maxnum);
+            
+//         }
+        
+        set<int> hashset;
+        
+        while(right < s.size()) {
+            if(!(hashset.count(s[right]))) {
+                hashset.insert(s[right]);
+                right++;
+            } else {
+                hashset.erase(s[left]);
                 left++;
-                count--;
             }
             
-            maxnum = max(count, maxnum);
-            
+            maxnum = max(maxnum, right - left);
         }
         
         return maxnum;
@@ -30,7 +46,7 @@ public:
     }
 };
 
-// Dynamic sliding window
+// Dynamic sliding window for hashmap solution
 
 // cur = a, i = 0, left = 0, ht[a] = 1, count = 1
 //  maxnum = max(count = 1, maxnum = 0) -> maxnum = 1
