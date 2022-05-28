@@ -11,9 +11,8 @@ public:
                 count = 0;
             } else {
                 count++;
+                maxCount = max(maxCount, count);
             }
-            
-            maxCount = max(maxCount, count);
         }
         
         return maxCount;
