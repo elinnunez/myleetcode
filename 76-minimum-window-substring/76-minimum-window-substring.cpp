@@ -39,7 +39,7 @@ public:
                 int winSize = r-left+1;
                 
                 if(winSize < curWin || out == "") {
-                    out = s.substr(left, r - left + 1);
+                    out = s.substr(left, winSize);
                     curWin = winSize;
                 }
                 
