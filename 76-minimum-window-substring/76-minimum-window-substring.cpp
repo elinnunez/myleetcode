@@ -35,12 +35,10 @@ public:
             }
             
             while(matches == t.size()) {
-                // string temp = s.substr(left, r - left + 1);
                 
                 int winSize = r-left+1;
                 
                 if(winSize < curWin || out == "") {
-                    // out = temp;
                     out = s.substr(left, r - left + 1);
                     curWin = winSize;
                 }
