@@ -14,6 +14,8 @@ public:
         
         int matches = 0;
         
+        int curWin = INT_MAX;
+        
         for(const auto& it: t) {
             hash[it]++;
         }
@@ -33,10 +35,14 @@ public:
             }
             
             while(matches == t.size()) {
-                string temp = s.substr(left, r - left + 1);
+                // string temp = s.substr(left, r - left + 1);
                 
-                if(temp.size() < out.size() || out == "") {
-                    out = temp;
+                int winSize = r-left+1;
+                
+                if(winSize < curWin || out == "") {
+                    // out = temp;
+                    out = s.substr(left, r - left + 1);
+                    curWin = winSize;
                 }
                 
                 char leftChar = s[left];
