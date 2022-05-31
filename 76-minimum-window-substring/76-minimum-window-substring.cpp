@@ -14,7 +14,7 @@ public:
         
         int matches = 0;
         
-        int curWin = INT_MAX; //  Set window to larget possible size
+        int minWin = INT_MAX; //  Set window to larget possible size
         
         for(const auto& it: t) {
             hash[it]++;
@@ -36,11 +36,11 @@ public:
             
             while(matches == t.size()) {
                 
-                int winSize = r-left+1; // current window size that has all matches
+                int curWin = r-left+1; // current window size that has all matches
                 
-                if(winSize < curWin || out == "") { // check if the current winSize is smaller than previous curWin
-                    out = s.substr(left, winSize); // output is now a smaller substring that still has all matches
-                    curWin = winSize; // set curWin to newer smaller window size
+                if(curWin < minWin || out == "") { // check if the current winSize is smaller than previous minWin
+                    out = s.substr(left, curWin); // output is now a smaller substring that still has all matches
+                    minWin = curWin; // set minWin to newer smaller window size
                 }
                 
                 char leftChar = s[left];
