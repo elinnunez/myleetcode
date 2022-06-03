@@ -4,7 +4,7 @@ public:
         int nxtNonDupIdx = 1;
         
         for(int i = 1; i < nums.size(); i++) {
-            if(nums[nxtNonDupIdx-1] != nums[i]) {
+            if(nums[i-1] != nums[i]) {
                 nums[nxtNonDupIdx] = nums[i];
                 nxtNonDupIdx++;
             }
