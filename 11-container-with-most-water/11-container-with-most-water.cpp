@@ -4,11 +4,13 @@ public:
         int i = 0;
         int j = height.size() - 1;
         
-        int maxAmt = 0;
+        int maxArea = 0;
         
         while (i < j) {
-            int curMaxAmt = min(height[i],height[j]) * (j-i);
-            maxAmt = max(maxAmt,curMaxAmt);
+            int curArea = min(height[i],height[j]) * (j-i);
+            
+            maxArea = max(maxArea,curArea);
+            
             if(height[i] < height[j]) {
                 i++;
             } else {
@@ -16,6 +18,6 @@ public:
             }
         }
         
-        return maxAmt;
+        return maxArea;
     }
 };
