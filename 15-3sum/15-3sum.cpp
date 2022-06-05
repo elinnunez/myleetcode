@@ -14,7 +14,8 @@ public:
                 int low = i+1;
                 int hi = nums.size() - 1;
                 while(low < hi) {
-                    if(nums[i] + nums[low] + nums[hi] == 0) {
+                    int curSum = nums[i] + nums[low] + nums[hi];
+                    if(curSum == 0) {
                         vector<int> temp = {nums[i],nums[low],nums[hi]};
                         
                         output.push_back(temp);
@@ -22,12 +23,12 @@ public:
                         while(low < hi && nums[low] == nums[low+1]){
                             low++;
                         }
-                        while(low < hi && nums[hi] == nums[hi-1]){
-                            hi--;
-                        }
+                        // while(low < hi && nums[hi] == nums[hi-1]){
+                        //     hi--;
+                        // }
                         low++;
-                        hi--;
-                    } else if (nums[i] + nums[low] + nums[hi] > 0) {
+                        // hi--;
+                    } else if (curSum > 0) {
                         hi--;
                     } else {
                         low++;
