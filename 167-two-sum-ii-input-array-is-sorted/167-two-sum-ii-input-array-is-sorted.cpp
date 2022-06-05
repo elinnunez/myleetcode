@@ -4,8 +4,6 @@ public:
         int i = 0;
         int j = numbers.size() - 1;
         
-        vector<int> output;
-        
         while (i < j && numbers[i]+numbers[j] != target) {
             int curSum = numbers[i]+numbers[j];
             if (curSum > target) {
@@ -15,8 +13,6 @@ public:
             }
         }
         
-        output = {i+1,j+1};
-        
-        return output;
+        return {i+1,j+1};
     }
 };
