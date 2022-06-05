@@ -13,8 +13,7 @@ public:
             } else if (curSum < target) {
                 i++;
             } else {
-                output = {i+1,j+1};
-                return output;
+                return {i+1,j+1};
             }
         }
         
