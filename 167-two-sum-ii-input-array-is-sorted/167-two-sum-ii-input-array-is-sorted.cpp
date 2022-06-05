@@ -14,7 +14,7 @@ public:
                 i++;
             } else {
                 output = {i+1,j+1};
-                break;
+                return output;
             }
         }
         
