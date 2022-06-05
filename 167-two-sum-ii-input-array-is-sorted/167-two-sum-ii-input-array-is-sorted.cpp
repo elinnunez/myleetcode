@@ -6,17 +6,16 @@ public:
         
         vector<int> output;
         
-        while (i < j) {
+        while (i < j && numbers[i]+numbers[j] != target) {
             int curSum = numbers[i]+numbers[j];
             if (curSum > target) {
                 j--;
-            } else if (curSum < target) {
-                i++;
             } else {
-                output = {i+1,j+1};
-                return output;
+                i++;
             }
         }
+        
+        output = {i+1,j+1};
         
         return output;
     }
