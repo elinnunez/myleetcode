@@ -26,13 +26,13 @@ public:
                         
                         output.push_back(temp);
                         
-                        while(low < hi && nums[low] == nums[low+1]){ // handle duplicates until non-dup reached
+                        while(low < hi && nums[low] == nums[low+1]){ // keep skipping dups from low side until
                             low++;
                         }
-                        // while(low < hi && nums[hi] == nums[hi-1]){
-                        //     hi--;
-                        // }
-                        // hi--;
+                        while(low < hi && nums[hi] == nums[hi-1]){ // keep skipping dups from hi side
+                            hi--;
+                        }
+                        hi--;
                         low++;
                     }
                 }
