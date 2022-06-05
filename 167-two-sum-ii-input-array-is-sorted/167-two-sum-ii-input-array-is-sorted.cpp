@@ -4,15 +4,20 @@ public:
         int i = 0;
         int j = numbers.size() - 1;
         
-        while (i < j && numbers[i]+numbers[j] != target) {
+        vector<int> output;
+        
+        while (i < j) {
             int curSum = numbers[i]+numbers[j];
             if (curSum > target) {
                 j--;
-            } else {
+            } else if (curSum < target) {
                 i++;
+            } else {
+                output = {i+1,j+1};
+                return output;
             }
         }
         
-        return {i+1,j+1};
+        return output;
     }
 };
