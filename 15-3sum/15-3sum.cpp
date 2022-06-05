@@ -26,7 +26,7 @@ public:
                         
                         output.push_back(temp);
                         
-                        while(low < hi && nums[low] == nums[low+1]){ // keep skipping dups from low side until
+                        while(low < hi && nums[low] == nums[low+1]){ // keep skipping dups from low side
                             low++;
                         }
                         while(low < hi && nums[hi] == nums[hi-1]){ // keep skipping dups from hi side
