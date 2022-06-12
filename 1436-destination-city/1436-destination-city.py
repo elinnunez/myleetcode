@@ -5,14 +5,13 @@ class Solution:
         
         out = None
         
-        for first,second in paths:
-            print(f"index 0: {first}, index 1: {second}")
-            if first not in myset:
-                myset.add(first);
+        for path in paths:
+            if path[0] not in myset:
+                myset.add(path[0]);
         
-        for first,second in paths:
-            if second not in myset:
-                out = second
+        for path in paths:
+            if path[1] not in myset:
+                out = path[1]
         
         return out
         
