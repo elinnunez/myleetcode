@@ -10,10 +10,11 @@ class Solution:
         for i in range(len(s) - 1, -1, -1):
             if i == len(s)-1:
                 res+= roman[s[i]]
-            elif roman[s[i]] >= roman[s[i+1]]:
-                res+= roman[s[i]]
-            else:
-                res-= roman[s[i]]
+            else:    
+                if roman[s[i]] >= roman[s[i+1]]:
+                    res+= roman[s[i]]
+                else:
+                    res-= roman[s[i]]
         
         return res
             
