@@ -6,18 +6,14 @@ class Solution:
             return None
         
         res = 0
+        
         for i in range(len(s) - 1, -1, -1):
-            
-            if i != len(s)-1:
-                print(s[i] + " vs " + s[i+1])
-                if roman[s[i]] < roman[s[i+1]]:
-                    res-= roman[s[i]]
-                elif(roman[s[i]] >= roman[s[i+1]]):
-                    res+= roman[s[i]]
-            else:
-                print(s[i])
+            if i == len(s)-1:
                 res+= roman[s[i]]
-            print(f"res: {res}")
+            elif roman[s[i]] >= roman[s[i+1]]:
+                res+= roman[s[i]]
+            else:
+                res-= roman[s[i]]
         
         return res
             
