@@ -4,7 +4,7 @@ public:
         map<int,int> ht;
         
         for(int i = 0; i < nums.size(); i++) {
-            ht[nums[i]] = 1;
+            ht[nums[i]] = NULL;
         }
         
         int prev = 0;
