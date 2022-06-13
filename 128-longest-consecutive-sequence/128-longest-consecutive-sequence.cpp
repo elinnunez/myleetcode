@@ -8,7 +8,7 @@ public:
         }
         
         int prev = 0;
-        int maxCount = 0;
+        int maxCount = INT_MIN;
         int count = 0;
         
         for(auto const& it: ht) {
@@ -20,8 +20,7 @@ public:
             count+=1;
         }
         
-        maxCount = max(maxCount,count);
+         return max(maxCount,count);
         
-        return maxCount;
     }
 };
