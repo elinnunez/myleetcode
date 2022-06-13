@@ -8,7 +8,7 @@ public:
         }
         
         int prev = 0;
-        int maxCount = INT_MIN;
+        int maxCount = 0;
         int count = 0;
         
         for(auto const& it: ht) {
