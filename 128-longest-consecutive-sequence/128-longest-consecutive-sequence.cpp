@@ -12,8 +12,6 @@ public:
         int count = 0;
         
         for(auto const& it: ht) {
-            // cout << "prev: " << prev << endl;
-            // cout << it.first << ": " << it.second << endl;
             if(it.first - prev > 1) {
                 maxCount = max(maxCount,count);
                 count = 0;
