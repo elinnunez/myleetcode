@@ -7,20 +7,20 @@ public:
             ht[nums[i]] = NULL;
         }
         
+        int curMax = INT_MIN;
         int prev = 0;
-        int maxCount = INT_MIN;
         int count = 0;
         
         for(auto const& it: ht) {
             if(it.first - prev > 1) {
-                maxCount = max(maxCount,count);
+                curMax = max(curMax,count);
                 count = 0;
             }
             prev = it.first;
             count+=1;
         }
         
-         return max(maxCount,count);
-        
+        return max(curMax,count);
+
     }
 };
