@@ -1,7 +1,6 @@
 class Solution {
 public:
     int numMatchingSubseq(string s, vector<string>& words) {
-        int count = 0;
         
         unordered_map<string, int> bag;
         
@@ -9,17 +8,19 @@ public:
             bag[words[i]]++;
         }
         
+        int count = 0;
+        
         for(const auto& it: bag) {
             string curWord = it.first;
             
-            int curIdx = 0;
+            int curI = 0;
             
             for(int i = 0; i < s.size(); i++) {
-                if(s[i] == curWord[curIdx]) {
-                    curIdx++;
+                if(s[i] == curWord[curI]) {
+                    curI++;
                 }
                 
-                if(curIdx == curWord.size()) {
+                if(curI == curWord.size()) {
                     count+= it.second;
                     break;
                 }
@@ -27,6 +28,6 @@ public:
         }
         
         return count;
-           
+        
     }
 };
