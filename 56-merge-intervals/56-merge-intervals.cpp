@@ -13,7 +13,7 @@ public:
             int clow = intervals[i][0];
             int chi = intervals[i][1];
             
-            if(!(clow <= curmax)) {
+            if(clow > curmax) {
                 
                 vector<int> temp;
                 temp.push_back(low);
