@@ -1,5 +1,21 @@
 class Solution {
 public:
+    bool isMatch(string &s, string curWord) {
+        int curI = 0;
+        
+        for(int i = 0; i < s.size(); i++) {
+            if(s[i] == curWord[curI]) {
+                curI++;
+            }
+
+            if(curI == curWord.size()) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
     int numMatchingSubseq(string s, vector<string>& words) {
         
         unordered_map<string, int> bag;
@@ -12,20 +28,11 @@ public:
         
         // O(n^2)
         for(const auto& it: bag) { // O(n)
-            string curWord = it.first;
             
-            int curI = 0;
-            
-            for(int i = 0; i < s.size(); i++) { // O(n)
-                if(s[i] == curWord[curI]) {
-                    curI++;
-                }
-                
-                if(curI == curWord.size()) {
-                    count+= it.second;
-                    break;
-                }
+            if(isMatch(s, it.first)) { // O(n)
+                count+= it.second;
             }
+            
         }
         
         return count;
