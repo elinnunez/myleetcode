@@ -7,13 +7,13 @@ public:
         
         int total = 0;
         
-        for(int i = right; i < n; i++) { // O(k)
+        for(int i = right; i < n; i++) { // O(n)
             total+= cardPoints[i];
         }
         
         int result = total;
         
-        while(right < n) { // O(k)
+        while(right < n) { // O(n)
             total+= (cardPoints[left] - cardPoints[right]);
             result = max(result, total); // O(1)
             left++;
@@ -24,4 +24,4 @@ public:
     }
 };
 
-// Time Complexity: O(k)
+// Time Complexity: O(n) when all cards are counted
