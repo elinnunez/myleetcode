@@ -1,21 +1,21 @@
 class Solution {
 public:
     int maxScore(vector<int>& cardPoints, int k) {
-        int n = cardPoints.size();
+        int n = cardPoints.size(); // O(1)
         int left = 0;
         int right = n - k;
         
         int total = 0;
         
-        for(int i = right; i < n; i++) {
+        for(int i = right; i < n; i++) { // O(n)
             total+= cardPoints[i];
         }
         
         int result = total;
         
-        while(right < n) {
+        while(right < n) { // O(n)
             total+= (cardPoints[left] - cardPoints[right]);
-            result = max(result, total);
+            result = max(result, total); // O(1)
             left++;
             right++;
         }
@@ -23,3 +23,5 @@ public:
         return result;
     }
 };
+
+// Time Complexity: O(n)
