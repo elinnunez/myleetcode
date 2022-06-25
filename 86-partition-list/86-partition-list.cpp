@@ -15,23 +15,23 @@ public:
             return head;
         }
         
-        ListNode* greaterHeadRef = new ListNode();
-        ListNode* greater = greaterHeadRef;
-        ListNode* lesserHeadRef = new ListNode();
-        ListNode* less = lesserHeadRef;
+        ListNode* greaterHeadRef = new ListNode(); // head reference for greater than x nodes list
+        ListNode* greater = greaterHeadRef; // node runner for greaterHeadRef
         
-        ListNode* cur = head;
+        ListNode* lesserHeadRef = new ListNode(); // head reference for less than x nodes list
+        ListNode* less = lesserHeadRef; // node runner for lesserHeadRef
         
-        while(cur != nullptr) {
-            if(cur->val < x) {
-                less->next = cur;
+        while(head != nullptr) {
+            if(head->val < x) {
+                less->next = head;
                 less = less->next;
             } else {
-                greater->next = cur;
+                greater->next = head;
                 greater = greater->next;
             }
-            cur = cur->next;
+            head = head->next;
         }
+        delete head;
         
         greater->next = nullptr;
         less->next = nullptr;
@@ -41,3 +41,5 @@ public:
         return lesserHeadRef->next;
     }
 };
+
+// Time Complexity: O(n)
