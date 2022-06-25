@@ -10,24 +10,32 @@
  */
 class Solution {
 public:
-    // Only works on sorted linked lists
+    // Works for sorted and unsorted linked lists
     ListNode* deleteDuplicates(ListNode* head) {
         if(head == nullptr || head->next == nullptr) {
             return head;
         }
         
         ListNode* cur = head;
-        
         while(cur != nullptr) {
-            ListNode* temp = cur->next;
-            while(temp != nullptr && temp->val == cur->val) {
+            ListNode* temp = cur->next; // to loop through list
+            ListNode* prev = cur; // hold reference for next non dup of cur->val
+            ListNode* prevHead = prev; // hold reference for head of prev list
+            while(temp != nullptr) {
+                if(temp->val == cur->val) {
+                    prev->next = temp->next;
+                    temp = prev;
+                } else {
+                    prev = prev->next;
+                }
                 temp = temp->next;
             }
-            cur->next = temp;
+            delete temp;
+            cur->next = prevHead->next;
             cur = cur->next;
-        } 
+        }
+        delete cur;
         
-        
-        return head;    
+        return head;
     }
 };
