@@ -111,17 +111,15 @@ public:
             idx++;
         }
         
-        // if(idx == size-1) {
-        //     cur->next = nullptr;
-        //     size--;
-        //     return;
-        // }
+        if(idx == size-1) {
+            cur->next = nullptr;
+            size--;
+            return;
+        }
         
         node* temp = cur->next;
         
-        if(temp == nullptr) {
-            cur->next = nullptr;
-        } else {
+        if(temp) {
             cur->next = temp->next;
         }
         size--;
