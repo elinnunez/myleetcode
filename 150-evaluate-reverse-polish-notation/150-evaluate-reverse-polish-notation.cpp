@@ -27,16 +27,18 @@ public:
         stack<int> bag;
         
         for(int i = 0; i < tokens.size(); i++) {
-            string curChar = tokens[i];
-            if(isNumber(curChar) == false) {
+            string cur = tokens[i];
+            if(isNumber(cur) == false) {
                 int a = bag.top();
                 bag.pop();
+                
                 int b = bag.top();
                 bag.pop();
-                int c = operations(a,b,curChar);
-                bag.push(c);
+                
+                int result = operations(a,b,cur);
+                bag.push(result);
             } else {
-                bag.push(stoi(curChar));
+                bag.push(stoi(cur));
             }
         }
         
