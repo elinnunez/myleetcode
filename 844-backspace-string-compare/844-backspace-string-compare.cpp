@@ -6,10 +6,8 @@ public:
         
         for(int i = 0; i < s.size(); i++) {
             if(s[i] == '#') {
-                if(bag1.empty()) {
-                    continue;
-                } else {
-                    bag1.pop();   
+                if(!bag1.empty()) {
+                    bag1.pop();
                 }
             } else {
                 bag1.push(s[i]);
@@ -18,10 +16,8 @@ public:
         
         for(int i = 0; i < t.size(); i++) {
             if(t[i] == '#') {
-                if(bag2.empty()) {
-                    continue;
-                } else {
-                    bag2.pop();   
+                if(!bag2.empty()) {
+                    bag2.pop();
                 }
             } else {
                 bag2.push(t[i]);
