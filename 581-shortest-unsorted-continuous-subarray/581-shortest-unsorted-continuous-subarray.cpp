@@ -38,7 +38,7 @@ public:
         
         int end = n - 1;
         
-        // now find the first index from start where the elememt is not in correct position
+        // now find the first index from start where the element is not in correct position
         
         while(start <= left && nums[start] <= mini)
             start++;
