@@ -1,13 +1,15 @@
 class Solution {
-public:
-    bool isAnagram(string s, string t) {
-        if (s.size() != t.size()) {
-            return false;
-        }
+    public boolean isAnagram(String s, String t) {
         
-        sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
+        char[] sar = s.toCharArray();
+        Arrays.sort(sar);
+        String ssorted = String.valueOf(sar);
         
-        return s == t;
+        char[] tar = t.toCharArray();
+        Arrays.sort(tar);
+        String tsorted = String.valueOf(tar);
+        
+        return ssorted.equals(tsorted);
+        
     }
-};
+}
