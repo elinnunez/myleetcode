@@ -26,9 +26,8 @@ public:
                 return true;
             }
             
-            if(r >= s1.size() - 1) {
+            if(r >= s1.size()-1) {
                 char leftChar = s2[left];
-                
                 if(hash.count(leftChar)) {
                     if(hash[leftChar] == 0) {
                         matches--;
@@ -37,7 +36,6 @@ public:
                 }
                 left++;
             }
-            
         }
         
         return false;
