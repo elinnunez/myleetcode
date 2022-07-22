@@ -11,7 +11,7 @@ public:
             int high = nums.size() -1;
             
             while(lo < high) {
-                int diff = target - nums[i] - nums[lo] - nums[high];
+                int diff = target - (nums[i] + nums[lo] + nums[high]);
                 
                 if(diff == 0) {
                     return target - diff;
