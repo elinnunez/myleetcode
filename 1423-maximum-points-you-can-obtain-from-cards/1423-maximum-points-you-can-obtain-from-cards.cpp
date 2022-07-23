@@ -5,22 +5,23 @@ public:
         int left = 0;
         int right = n - k;
         
-        int result = 0;
+        int maxPoints = 0;
         
         for(int i = right; i < n; i++) {
-            result+= cardPoints[i];
+            maxPoints+= cardPoints[i];
         }
         
-        int total = result;
+        int total = maxPoints;
         
         while(right < n) {
-            total+= (cardPoints[left] - cardPoints[right]);
-            result = max(result, total);
-            left++;
+            total+= cardPoints[left] - cardPoints[right];
+            maxPoints = max(maxPoints, total);
             right++;
+            left++;
         }
         
-        return result;
+        return maxPoints;
+        
     }
 };
 
