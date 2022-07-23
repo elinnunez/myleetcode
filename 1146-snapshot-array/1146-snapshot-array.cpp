@@ -1,7 +1,7 @@
 class SnapshotArray {
 private:
     unordered_map<int,int> mapArr;
-    vector<unordered_map<int,int>> snapTable;
+    map<int,unordered_map<int,int>> snapTable;
     int snap_id;
 public:
     SnapshotArray(int length) {
@@ -14,7 +14,7 @@ public:
     
     int snap() {
         snap_id++;
-        snapTable.push_back(mapArr);
+        snapTable[snap_id] = mapArr;
         return snap_id;
     }
     
