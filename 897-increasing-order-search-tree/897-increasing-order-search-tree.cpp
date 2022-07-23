@@ -11,11 +11,8 @@
  */
 class Solution {
 public:
-    
-    TreeNode* dummy = new TreeNode();
-    TreeNode* cur = dummy;
-    
-    
+    TreeNode* cur;
+     
     void fill(TreeNode* root) {
         if(!root) {
             return;
@@ -31,6 +28,9 @@ public:
         if(!root) {
             return root;
         }
+        
+        TreeNode* dummy = new TreeNode();
+        cur = dummy;
         
         fill(root);
         
