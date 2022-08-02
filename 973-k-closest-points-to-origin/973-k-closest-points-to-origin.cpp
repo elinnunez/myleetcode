@@ -2,29 +2,24 @@ class Solution {
 public:
     vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
         
-        vector<pair<int,vector<int>>> bag;
+        vector<vector<int>> temp;
         
         for(int i = 0; i < points.size(); i++) {
-            int x1 = points[i][0];
-            int y1 = points[i][1];
-            int distance = pow(x1,2) + pow(y1,2);
-            
-            pair<int,vector<int>> p;
-            p.first = distance;
-            p.second = points[i];
-            
-            bag.push_back(p);
+            int euc = pow(points[i][0],2) + pow(points[i][1],2);
+        
+            vector<int> bag = {euc, i};
+            temp.push_back(bag);
         }
         
-        sort(bag.begin(), bag.end());
+        sort(temp.begin(), temp.end());
         
-        vector<vector<int>> output;
+        vector<vector<int>> kclose;
         
         for(int i = 0; i < k; i++) {
-            output.push_back(bag[i].second);
+            int ptsIdx = temp[i][1];
+            kclose.push_back(points[ptsIdx]);
         }
         
-        return output;
-        
+        return kclose;
     }
 };
