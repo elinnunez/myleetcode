@@ -10,42 +10,27 @@
  */
 class Solution {
 public:
-    ListNode* getKth(ListNode* cur, int k) {
-        while(cur != nullptr && k > 0) {
-            cur = cur->next;
-            k--;
-        }
-        return cur;
-    }
-    
     ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode* dummy = new ListNode();
-        dummy->next = head;
-        ListNode* groupPrev = dummy;
+        vector<int> bag;
+        int count = 0;
         
-        while(true) {
-            ListNode* kth = getKth(groupPrev,k);
-            if(kth == nullptr) {
-                break;
+        while(head != nullptr) {
+            bag.push_back(head->val);
+            head = head->next;
+            count++;
+            
+            if(count % k == 0) {
+                reverse(bag.begin()+count-k,bag.end());
             }
-            ListNode* groupNext = kth->next;
-            
-            // reverse group
-            ListNode* prev = kth->next;
-            ListNode* cur = groupPrev->next;
-            
-            while(cur != groupNext) {
-                ListNode* temp = cur->next;
-                cur->next = prev;
-                prev = cur;
-                cur = temp;
-            }
-            
-            ListNode* tmp = groupPrev->next;
-            
-            groupPrev->next = kth;
-            groupPrev = tmp;
-            
+        }
+        
+        ListNode* dummy = new ListNode();
+        ListNode* cur = dummy;
+        
+        for(int i = 0; i < bag.size(); i++) {
+            ListNode* temp = new ListNode(bag[i]);
+            cur->next = temp;
+            cur = cur->next;
         }
         
         return dummy->next;
