@@ -12,7 +12,7 @@
 class Solution {
 public:
     void addPath(TreeNode* root, vector<string>& output, string cur) {
-        if((!root->left && !root->right) || !root) {
+        if(!root || (!root->left && !root->right)) {
             if(root) {
                 cur+= to_string(root->val);
             }
@@ -30,10 +30,8 @@ public:
         if(root->right) {
             addPath(root->right, output, cur);
         }
-        
-        
-        
     }
+    
     vector<string> binaryTreePaths(TreeNode* root) {
         
         vector<string> output;
