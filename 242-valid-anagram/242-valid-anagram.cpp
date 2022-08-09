@@ -1,15 +1,27 @@
 class Solution {
-    public boolean isAnagram(String s, String t) {
+public:
+    bool isAnagram(string s, string t) {
+        if(s.size() != t.size()) {
+            return false;
+        }
         
-        char[] sar = s.toCharArray();
-        Arrays.sort(sar);
-        String ssorted = String.valueOf(sar);
+        unordered_map<char, int> ht;
         
-        char[] tar = t.toCharArray();
-        Arrays.sort(tar);
-        String tsorted = String.valueOf(tar);
+        for(char& c : s) {
+            ht[c]++;
+        }
         
-        return ssorted.equals(tsorted);
+        for(char& c : t) {
+            if(ht.count(c)) {
+                ht[c]--;
+                if(ht[c] == 0) {
+                    ht.erase(c);
+                }
+            } else {
+                return false;
+            }
+        }
         
+        return true;
     }
-}
+};
