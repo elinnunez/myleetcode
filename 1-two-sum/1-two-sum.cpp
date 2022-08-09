@@ -6,11 +6,11 @@ public:
         vector<int> temp;
         
         for(int i = 0; i < nums.size(); i++) {
-            if(ht.count(target-nums[i]) < 1) {
+            if(!ht.count(target-nums[i])) {
                 ht[nums[i]] = i;
             } else {
-                temp.push_back(ht[target-nums[i]]);
-                temp.push_back(i);
+                temp = {ht[target-nums[i]], i};
+                break;
             }
         }
         
