@@ -16,12 +16,8 @@ public:
             return 0;
         } else if (!root->left && !root->right) {
             return 1;
-        } else if (!root->left) {
-            return maxDepth(root->right) + 1;
-        } else if (!root->right) {
-            return maxDepth(root->left) + 1;
-        } else {
-            return max(maxDepth(root->left)+1, maxDepth(root->right)+1);
-        }
+        }    
+        
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
     }
 };
