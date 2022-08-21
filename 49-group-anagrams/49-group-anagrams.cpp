@@ -6,12 +6,10 @@ public:
         
         unordered_map<string, vector<string>> ht;
         
-        for(int i = 0; i < strs.size(); i++) {
-            string og = strs[i];
-            
-            sort(strs[i].begin(), strs[i].end());
-            
-            ht[strs[i]].push_back(og);
+        for(string const& word : strs) {
+            string temp = word;
+            sort(begin(temp),end(temp));
+            ht[temp].push_back(word);
         }
         
         for(auto const& it : ht) {
