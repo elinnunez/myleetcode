@@ -6,6 +6,7 @@ public:
         
         while(low <= high) {
             int mid = low + (high-low)/2;
+            
             if(nums[mid] == target) {
                 return mid;
             }
@@ -26,6 +27,7 @@ public:
         }
         
         return -1;
-        
     }
 };
+// Time Complexity: O(logn)
+// Space Complexity: O(1)
