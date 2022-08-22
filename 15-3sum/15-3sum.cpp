@@ -10,32 +10,31 @@ public:
         sort(nums.begin(), nums.end());
         
         for(int i = 0; i < nums.size()-2; i++) {
-            if(i==0 || i > 0 && nums[i] != nums[i-1]) { // if either 0 index or i > 0 and not a dup
+            if(i == 0 || i > 0 && nums[i-1] != nums[i]) {
                 int low = i+1;
-                int hi = nums.size() - 1;
-                while(low < hi) {
-                    
-                    int curSum = nums[i] + nums[low] + nums[hi];
+                int high = nums.size()-1;
+                
+                while(low < high) {
+                    int curSum = nums[i] + nums[low] + nums[high];
                     
                     if(curSum > 0) {
-                        hi--;
+                        high--;
                     } else if (curSum < 0) {
                         low++;
                     } else {
-                        vector<int> temp = {nums[i],nums[low],nums[hi]};
+                        output.push_back({nums[i], nums[low], nums[high]});
                         
-                        output.push_back(temp);
-                        
-                        while(low < hi && nums[low] == nums[low+1]){ // keep skipping dups from low side
+                        while(low < high && nums[low] == nums[low+1]) {
                             low++;
                         }
-                        while(low < hi && nums[hi] == nums[hi-1]){ // keep skipping dups from hi side
-                            hi--;
+                        while(high > low && nums[high-1] == nums[high]) {
+                            high--;
                         }
-                        hi--;
+                        high--;
                         low++;
                     }
                 }
+                
             }
         }
         
@@ -43,3 +42,5 @@ public:
         
     }
 };
+// Time Complexity: O(n^2)
+// Space Complexity: O(n)
