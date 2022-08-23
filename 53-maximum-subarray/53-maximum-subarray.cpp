@@ -5,19 +5,18 @@ public:
             return nums[0];
         }
         
-        int cursum = 0;
-        int maxnum = nums[0];
+        int curSum = 0;
+        int maxNum = INT_MIN;
         
-        for(int r = 0; r < nums.size(); r++) {
+        for(int i = 0; i < nums.size(); i++) {
+            curSum+= nums[i];
+            maxNum = max(maxNum, curSum);
             
-            if(cursum < 0) {
-                cursum = 0;
+            if(curSum < 0) {
+                curSum = 0;
             }
-            cursum+= nums[r];
-            
-            maxnum = max(cursum, maxnum);
         }
         
-        return maxnum;
+        return maxNum;
     }
 };
