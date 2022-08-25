@@ -2,19 +2,18 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         
-        int l = 0;
-        int r = nums.size() - 1;
+        int low = 0;
+        int high = nums.size() - 1;
         
-        while(l <= r) {
-            int mid = l+(r-l)/2; // correct way to not get overflow errors
+        while(low <= high) {
+            int mid = low + (high-low)/2;
+            
             if(nums[mid] == target) {
                 return mid;
+            } else if (nums[mid] > target) {
+                high = mid-1;
             } else {
-                if(nums[mid] < target) {
-                    l = mid + 1;
-                } else {
-                    r = mid - 1;
-                }   
+                low = mid+1;
             }
         }
         
@@ -22,3 +21,5 @@ public:
         
     }
 };
+// Time Complexity: O(logn)
+// Space Complexity: O(1)
