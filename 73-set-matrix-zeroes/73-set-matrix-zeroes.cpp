@@ -24,5 +24,5 @@ public:
         return;
     }
 };
-// Time Complexity: O(mno) where o = size of set
-// Space Complexity: O(1)
+// Time Complexity: O(mns) where s = zeroElt size
+// Space Complexity: O(s) where s = zeroElt size
