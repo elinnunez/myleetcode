@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        vector<int> count(nums.size()+1, 0);
+        vector<int> count(nums.size()+1, 0); // O(1)
         
         int duplicate = 0;
         
@@ -17,3 +17,5 @@ public:
         return duplicate;
     }
 };
+// Time Complexity: O(n)
+// Space Complexity: O(n)
