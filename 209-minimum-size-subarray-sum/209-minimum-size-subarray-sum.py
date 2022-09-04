@@ -1,6 +1,6 @@
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        minSize = len(nums)+1 # initialize a max value
+        minSize = math.inf # initialize a max value
         winSum = 0 # set current sum to 0
         windowStart = 0 # set begining of window to index 0
         
@@ -18,7 +18,7 @@ class Solution:
                 windowStart+=1 # increment windowStart from the left
                 
         
-        if minSize == len(nums)+1: # if nothing was found and minSize is still at default max value return 0
+        if minSize == math.inf: # if nothing was found and minSize is still at default max value return 0
             return 0
         
         return minSize
