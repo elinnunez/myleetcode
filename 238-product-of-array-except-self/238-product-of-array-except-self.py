@@ -4,17 +4,15 @@ class Solution:
         
         prefix = 1
         
-        for i in range(len(nums)):
-            ans[i] = prefix
-            prefix *= nums[i]
+        for idx in range(len(nums)):
+            ans[idx] = prefix
+            prefix *= nums[idx]
         
         postfix = 1
         
-        for i in range(len(nums)-1,-1,-1):
-            ans[i] *= postfix
-            postfix *= nums[i]
+        for idx in range(len(nums)-1,-1,-1):
+            ans[idx] *= postfix
+            postfix *= nums[idx]
+        
         
         return ans
-
-# Time Complexity: O(n)
-# Space Complexity: O(n)
