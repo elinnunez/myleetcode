@@ -6,11 +6,7 @@ public:
             return;
         }
         
-        if(target < 0) {
-            return;
-        }
-        
-        if(idx >= candidates.size()) {
+        if(target < 0 || idx >= candidates.size()) {
             return;
         }
         
