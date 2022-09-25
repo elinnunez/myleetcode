@@ -1,9 +1,8 @@
 class Solution {
 public:
-    void backtrack(vector<int>& nums, vector<vector<int>>& output, vector<int> cur, set<vector<int>>& found, vector<int>& chosen) {
+    void backtrack(vector<int>& nums, vector<int> cur, set<vector<int>>& found, vector<int>& chosen) {
         if(cur.size() == nums.size() && !found.count(cur)) {
             found.insert(cur);
-            output.push_back(cur);
             return;
         }
         
@@ -11,7 +10,7 @@ public:
             if(chosen[i] != 1) {
                 cur.push_back(nums[i]);
                 chosen[i] = 1;
-                backtrack(nums,output,cur,found,chosen);
+                backtrack(nums,cur,found,chosen);
                 cur.pop_back();
                 chosen[i] = 0;
             }
@@ -23,7 +22,11 @@ public:
         set<vector<int>> found;
         vector<int> chosen(nums.size(),0);
         
-        backtrack(nums,output,{},found,chosen);
+        backtrack(nums,{},found,chosen);
+        
+        for(const auto& it : found) {
+            output.push_back(it);
+        }
         
         return output;
     }
