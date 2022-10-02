@@ -9,3 +9,6 @@ class Solution:
             prev = curSteps
         
         return prev
+    
+# Time Complexity: O(n)
+# Space Complexity: O(1)
