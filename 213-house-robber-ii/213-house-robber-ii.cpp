@@ -24,8 +24,8 @@ public:
         int n = nums.size();
         
         for(int i = 0; i < n; i++) {
-            if(i != 0) part1.push_back(nums[i]);
-            if(i != n-1) part2.push_back(nums[i]);
+            if(i != 0) part1.push_back(nums[i]); // array with first index value omitted
+            if(i != n-1) part2.push_back(nums[i]); // array with last index value omitted
         }
         
         if(nums.size() == 1) {
@@ -35,3 +35,5 @@ public:
         return max(getMax(part1),getMax(part2));
     }
 };
+// Time Complexity: O(n)
+// Space Complexity: O(n)
