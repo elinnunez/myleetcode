@@ -17,9 +17,7 @@ public:
         
         int nottake = backtrack(coins,amount,idx-1,dp);
         
-        dp[idx][amount] = min(take,nottake);
-        
-        return dp[idx][amount];
+        return dp[idx][amount] = min(take,nottake);
     }
     
     int coinChange(vector<int>& coins, int amount) {
@@ -35,4 +33,5 @@ public:
         return res;
     }
 };
-// Time Complexity: O(2^n)
+// Time Complexity: O(n*m)
+// Space Complexity: O(n*m)
