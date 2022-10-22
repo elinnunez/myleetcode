@@ -10,38 +10,48 @@
  * };
  */
 class Solution {
+private:
+    TreeNode* first;
+    TreeNode* middle;
+    TreeNode* last;
+    TreeNode* prev;
 public:
-    void inorder(TreeNode* root, vector<int>& arr) {
+    void inorder(TreeNode* root) {
         if(!root) return;
         
-        inorder(root->left,arr);
-        arr.push_back(root->val);
-        inorder(root->right,arr);
+        inorder(root->left);
         
-    }
+        if(prev != nullptr && (root->val < prev->val)) {
+            
+            if(!first) {
+                first = prev;
+                middle = root;
+            } else {
+                last = root;
+            }
+        }    
+        
+        prev = root;
     
-    void solve(TreeNode* root, vector<int>& arr, int& i) {
-        if(!root) return;
+        inorder(root->right);
         
-        solve(root->left,arr,i);
-        
-        if(arr[i] != root->val) root->val = arr[i];
-        i++;
-        
-        solve(root->right,arr,i);
     }
     
     void recoverTree(TreeNode* root) {
-        vector<int> arr;
         
-        inorder(root,arr);
+        first = middle = last = nullptr;
         
-        sort(begin(arr),end(arr));
+        prev = new TreeNode(INT_MIN);
         
-        int i = 0;
+        inorder(root);
         
-        solve(root,arr,i);
+        if(first && last) {
+            swap(first->val, last->val);
+        } else {
+            swap(first->val, middle->val);
+        }
     }
 };
-// Time Complexity: O(2n + nlogn)
-// Space Complexity: O(n);
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+// Reference: https://www.youtube.com/watch?v=ZWGW7FminDM
