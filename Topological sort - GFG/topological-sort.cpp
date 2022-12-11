@@ -8,12 +8,12 @@ class Solution
 	public:
 	//Function to return list containing vertices in Topological order.
 	
-	void doTopoSort(int i, stack<int>& stk, vector<bool>&visited, vector<int> adj[]) {
+	void dfs(int i, stack<int>& stk, vector<bool>&visited, vector<int> adj[]) {
 	    visited[i] = true;
 	    
 	    for(auto edge : adj[i]) {
-	        if(visited[edge] == false) {
-	            doTopoSort(edge,stk,visited,adj);
+	        if(!visited[edge]) {
+	            dfs(edge,stk,visited,adj);
 	        }
 	    }
 	    
@@ -26,8 +26,8 @@ class Solution
 	    vector<bool>visited(V,false);
 	    
 	    for(int i = 0; i < V; i++) {
-	        if(visited[i] == false) {
-	            doTopoSort(i,stk,visited,adj);
+	        if(!visited[i]) {
+	            dfs(i,stk,visited,adj);
 	        }
 	    }
 	    
