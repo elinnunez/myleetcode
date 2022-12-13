@@ -13,7 +13,7 @@ class Solution {
                 if(dfs(edge,node,visited,adj) == true) {
                     return true;
                 }
-            } else if(edge != parent) {
+            } else if(visited[edge] && edge != parent) {
                 return true;
             }
         }
